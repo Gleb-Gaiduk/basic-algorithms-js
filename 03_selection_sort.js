@@ -1,19 +1,19 @@
+// O(1/2 * n^2) = O(n^2)
+
 const array = [3, 5, 6, 3, 10, 9, 5, 4, 8, 10];
 let iterationsCount = 0;
 
 function doSelectionSort(array) {
   for (let i = 0; i < array.length; i++) {
-    let minElemIndex = i;
+    let minValueIndex = i;
 
     for (let j = i + 1; j < array.length; j++) {
       ++iterationsCount;
-      if (array[j] < array[minElemIndex]) {
-        minElemIndex = j;
-      }
+      if (array[j] < array[minValueIndex]) minValueIndex = j;
     }
     const tempValue = array[i];
-    array[i] = array[minElemIndex];
-    array[minElemIndex] = tempValue;
+    array[i] = array[minValueIndex];
+    array[minValueIndex] = tempValue;
   }
   return array;
 }
